@@ -60,7 +60,9 @@ class TestBankFunction(unittest.TestCase):
         expected_result = (110, 133.1, 259.374246)
         for year, expected_result in zip(years_list, expected_result):
             with self.subTest(f'Ошибка при количестве лет: {year}'):
-                self.assertEqual(round(bank(self.summa, year), 2), round(expected_result,2))
+                self.assertEqual(round(bank(self.summa, year), 2),
+                                 round(expected_result, 2)
+                                 )
 
     def test_zero_years(self):
         """Рассчитать итоговую сумму на вкладе за 0 лет"""
