@@ -34,12 +34,11 @@ def square(side: int | float) -> tuple[int | float,
 def bank(a: int | float, years: int) -> int | float:
     """Рассчитать сумму, которая будет на счету пользователя
     через years лет при 10% годовых и вкладе a рублей."""
+    from functools import reduce
     if years < 0:
         raise ValueError('Количество лет должно быть '
                          'положительным числом')
     if a < 0:
         raise ValueError('Сумма для инвестиции должна быть '
                          'положительным числом')
-    for i in range(years):
-        a *= 1.1
-    return a
+    return reduce(lambda x, y: x * 1.1, range(years), a)
