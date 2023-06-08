@@ -1,3 +1,8 @@
+from exceptions import (YearsNegativeValueException,
+                        DepositNegativeValueException,
+                        SideNegativeValueException)
+
+
 def is_prime(number: int) -> bool:
     """
     Проверить, что передаваемый аргумент является
@@ -25,8 +30,7 @@ def square(side: int | float) -> tuple[int | float,
     :return:
     """
     if side < 0:
-        raise ValueError('Значение стороны квадрата должно быть '
-                         'положительным числом.')
+        raise SideNegativeValueException
     import math
 
     return 4 * side, side ** 2, side * math.sqrt(2)
@@ -38,9 +42,7 @@ def bank(a: int | float, years: int) -> int | float:
     from functools import reduce
 
     if years < 0:
-        raise ValueError('Количество лет должно быть '
-                         'положительным числом')
+        raise YearsNegativeValueException
     if a < 0:
-        raise ValueError('Сумма для инвестиции должна быть '
-                         'положительным числом')
+        raise DepositNegativeValueException
     return reduce(lambda x, y: x * 1.1, range(years), a)

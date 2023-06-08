@@ -2,6 +2,9 @@ import unittest
 import math
 
 from functions import is_prime, square, bank
+from exceptions import (SideNegativeValueException,
+                        YearsNegativeValueException,
+                        DepositNegativeValueException)
 
 
 class TestIsPrimeFunction(unittest.TestCase):
@@ -41,7 +44,7 @@ class TestSquareFunction(unittest.TestCase):
         """Рассчитать периметр, площадь и диагональ квадрата для отрицательного
         значения стороны."""
         side = -3
-        with self.assertRaises(ValueError):
+        with self.assertRaises(SideNegativeValueException):
             square(side)
 
 
@@ -74,7 +77,7 @@ class TestBankFunction(unittest.TestCase):
         """Рассчитать итоговую сумму на вкладе за отрицательное
         количество лет."""
         years_amount = -2
-        with self.assertRaises(ValueError):
+        with self.assertRaises(YearsNegativeValueException):
             bank(self.summa, years_amount)
 
     def test_negative_summa(self):
@@ -82,7 +85,7 @@ class TestBankFunction(unittest.TestCase):
         количество лет."""
         summa = -2
         years_amount = 10
-        with self.assertRaises(ValueError):
+        with self.assertRaises(DepositNegativeValueException):
             bank(summa, years_amount)
 
 
