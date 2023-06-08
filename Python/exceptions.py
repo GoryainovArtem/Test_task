@@ -30,5 +30,5 @@ class YearsNegativeValueException(ValueError):
 
     def __str__(self):
         return ('Количество лет должно быть '
-                'положительным числом'
+                'положительным числом.'
                 )

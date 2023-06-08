@@ -37,8 +37,13 @@ def square(side: int | float) -> tuple[int | float,
 
 
 def bank(a: int | float, years: int) -> int | float:
-    """Рассчитать сумму, которая будет на счету пользователя
-    через years лет при 10% годовых и вкладе a рублей."""
+    """
+    Рассчитать сумму, которая будет на счету пользователя
+    через years лет при 10% годовых и вкладе a рублей.
+    :param a:
+    :param years:
+    :return:
+    """
     from functools import reduce
 
     if years < 0:
