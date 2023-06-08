@@ -28,6 +28,7 @@ def square(side: int | float) -> tuple[int | float,
         raise ValueError('Значение стороны квадрата должно быть '
                          'положительным числом.')
     import math
+
     return 4 * side, side ** 2, side * math.sqrt(2)
 
 
@@ -35,6 +36,7 @@ def bank(a: int | float, years: int) -> int | float:
     """Рассчитать сумму, которая будет на счету пользователя
     через years лет при 10% годовых и вкладе a рублей."""
     from functools import reduce
+
     if years < 0:
         raise ValueError('Количество лет должно быть '
                          'положительным числом')
